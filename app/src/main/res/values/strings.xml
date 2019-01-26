@@ -15,7 +15,7 @@
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
 
     <!-- play store application link i.e more apps -->
-    <string name="play_more_apps">https://play.google.com/store/apps/banggoal</string>
+    <string name="play_more_apps">https://play.google.com/store/apps/developer?id=sitindo</string>
 
     <!--share-->
     <string name="share_content">I Would like to share this with you. Here You Can Download This Application from PlayStore</string>
