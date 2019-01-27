@@ -90,6 +90,15 @@ public class MyApplication extends Application {
         return "";
     }
 
+    public String getNohp() {
+        preferences = this.getSharedPreferences(prefName, 0);
+        if (preferences != null) {
+            String no_hp = preferences.getString(
+                    "no_hp", "");
+            return no_hp;
+        }
+        return "";
+    }
     public String getUserEmail() {
         preferences = this.getSharedPreferences(prefName, 0);
         if (preferences != null) {

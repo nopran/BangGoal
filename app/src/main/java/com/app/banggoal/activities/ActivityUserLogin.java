@@ -38,7 +38,7 @@ import org.json.JSONObject;
 
 public class ActivityUserLogin extends AppCompatActivity implements Validator.ValidationListener {
 
-    String strEmail, strPassword, strMessage, strName, strPassengerId, strImage, strPhone;
+    String strEmail, strPassword, strMessage, strName, strPassengerId, strImage ;
     @Required(order = 1)
     @Email(order = 2, message = "Please Check and Enter a valid Email Address")
     EditText edtEmail;

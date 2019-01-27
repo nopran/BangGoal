@@ -205,6 +205,7 @@ public class FragmentProfile extends Fragment {
                 final String user_id = objJson.getString("id");
                 final String name = objJson.getString("name");
                 final String email = objJson.getString("email");
+                final String no_hp = objJson.getString("no_hp");
                 final String user_image = objJson.getString("imageName");
                 final String password = objJson.getString("password");
 
@@ -228,6 +229,7 @@ public class FragmentProfile extends Fragment {
                         Intent intent = new Intent(getActivity(), ActivityProfile.class);
                         intent.putExtra("name", name);
                         intent.putExtra("email", email);
+                        intent.putExtra("no_hp", no_hp);
                         intent.putExtra("user_image", user_image);
                         intent.putExtra("password", password);
                         startActivity(intent);

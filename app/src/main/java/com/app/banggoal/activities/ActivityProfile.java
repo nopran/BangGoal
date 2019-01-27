@@ -59,7 +59,7 @@ import java.util.List;
 
 public class ActivityProfile extends AppCompatActivity {
 
-    EditText txt_email, txt_name, txt_pwd;
+    EditText txt_email, txt_name, txt_pwd, txt_nohp;
     MyApplication myApplication;
     Button btn_update;
     String strMessage;
@@ -69,7 +69,7 @@ public class ActivityProfile extends AppCompatActivity {
     private static final int SELECT_PICTURE = 1;
     String str_user_id;
     ProgressDialog progressDialog;
-    String str_name, str_email, str_image, str_password;
+    String str_name, str_email, str_image, str_password, str_nohp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +96,7 @@ public class ActivityProfile extends AppCompatActivity {
         str_email = intent.getStringExtra("email");
         str_image = intent.getStringExtra("user_image");
         str_password = intent.getStringExtra("password");
+        str_nohp = intent.getStringExtra("no_hp");
 
         progressDialog = new ProgressDialog(ActivityProfile.this);
         progressDialog.setTitle(getResources().getString(R.string.title_please_wait));
@@ -113,10 +114,12 @@ public class ActivityProfile extends AppCompatActivity {
         txt_email = findViewById(R.id.edt_email);
         txt_name = findViewById(R.id.edt_user);
         txt_pwd = findViewById(R.id.edt_password);
+        txt_nohp = findViewById(R.id.edt_no_hp);
 
         txt_name.setText(str_name);
         txt_email.setText(str_email);
         txt_pwd.setText(str_password);
+        txt_nohp.setText(str_nohp);
 
         if (NetworkCheck.isNetworkAvailable(ActivityProfile.this)) {
             //new MyTask().execute(Constant.PROFILE_URL + myApplication.getUserId());
@@ -218,7 +221,8 @@ public class ActivityProfile extends AppCompatActivity {
                     new MyTaskUp().execute(Constant.PROFILE_UPDATE_URL + myApplication.getUserId() +
                             "&name=" + txt_name.getText().toString().replace(" ", "%20") +
                             "&email=" + txt_email.getText().toString() +
-                            "&password=" + txt_pwd.getText().toString()
+                            "&password=" + txt_pwd.getText().toString() +
+                            "&no_hp=" + txt_nohp.getText().toString()
                     );
 
                 } else {
