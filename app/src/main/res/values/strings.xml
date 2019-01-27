@@ -135,6 +135,7 @@
     <string name="edt_name">Name</string>
     <string name="edt_email">Email</string>
     <string name="edt_password">Password</string>
+    <string name="edt_no_hp">Nomor Handphone</string>
 
     <!--button-->
     <string name="btn_login">LOGIN</string>

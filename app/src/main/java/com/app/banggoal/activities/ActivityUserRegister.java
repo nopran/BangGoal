@@ -50,11 +50,15 @@ public class ActivityUserRegister extends AppCompatActivity implements Validator
     @TextRule(order = 7, minLength = 6, message = "Enter a Password Correctly")
     EditText edtPassword;
 
+    @Required(order = 8)
+    @TextRule(order = 10, maxLength = 12 , message = "Enter a phone number Correctly")
+    EditText edtnohp;
+
     private Validator validator;
 
     Button btnsignup, btn_login;
     TextView txt_terms;
-    String strFullname, strEmail, strPassword, strMessage;
+    String strFullname, strEmail, strPassword, strNohp, strMessage;
 
 
     @Override
@@ -71,6 +75,7 @@ public class ActivityUserRegister extends AppCompatActivity implements Validator
         edtFullName = findViewById(R.id.edt_user);
         edtEmail = findViewById(R.id.edt_email);
         edtPassword = findViewById(R.id.edt_password);
+        edtnohp = findViewById(R.id.edt_no_hp);
 
         txt_terms = findViewById(R.id.txt_terms);
         btnsignup = findViewById(R.id.btn_update);
@@ -134,10 +139,11 @@ public class ActivityUserRegister extends AppCompatActivity implements Validator
         strFullname = edtFullName.getText().toString().replace(" ", "%20");
         strEmail = edtEmail.getText().toString();
         strPassword = edtPassword.getText().toString();
+        strNohp = edtnohp.getText().toString();
 
 
         if (NetworkCheck.isNetworkAvailable(ActivityUserRegister.this)) {
-            new MyTaskRegister().execute(Constant.REGISTER_URL + strFullname + "&email=" + strEmail + "&password=" + strPassword);
+            new MyTaskRegister().execute(Constant.REGISTER_URL + strFullname + "&email=" + strEmail + "&password=" + strPassword + "&no_hp=" + strNohp);
         } else {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setTitle(R.string.whops);
